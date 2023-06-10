@@ -1,7 +1,7 @@
 spring:
   main:
     banner-mode: off
-  mvc:
+  webflux:
     hiddenmethod:
       filter:
         enabled: true
