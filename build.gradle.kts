@@ -28,6 +28,7 @@ dependencies {
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("io.projectreactor:reactor-test")
+	testImplementation("io.projectreactor.tools:blockhound:1.0.8.RELEASE")
 }
 
 tasks.withType<KotlinCompile> {
@@ -38,5 +39,8 @@ tasks.withType<KotlinCompile> {
 }
 
 tasks.withType<Test> {
+	if (JavaVersion.current().isCompatibleWith(JavaVersion.VERSION_13)) {
+		jvmArgs?.add("-XX:+AllowRedefinitionToAddDeleteMethods")
+	}
 	useJUnitPlatform()
 }
