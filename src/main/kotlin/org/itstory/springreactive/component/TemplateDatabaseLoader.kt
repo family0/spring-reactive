@@ -11,8 +11,8 @@ class TemplateDatabaseLoader {
     @Bean
     fun initialize(mongo: MongoOperations): CommandLineRunner {
         return CommandLineRunner { args ->
-            mongo.save(Item(null, "Alf alarm clock", 2000.0))
-            mongo.save(Item(null, "Smurf TV tray", 1500.0))
+            mongo.save(Item(null, "Alf alarm clock", "clock description", 2000.0))
+            mongo.save(Item(null, "Smurf TV tray", "abcd", 1500.0))
         }
     }
 }
